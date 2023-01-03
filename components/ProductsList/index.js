@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 const ProductList = ({ products }) => {
   const router = useRouter();
@@ -14,11 +15,13 @@ const ProductList = ({ products }) => {
         const { price } = variants[0];
         return (
           <div key={id} onClick={() => goToProductPage(handle)}>
-            <img
+            <Image
               src={`${productImage}?w=250&auto=format`}
               srcSet={`${productImage}?w=250&auto=format&dpr=2 2x`}
               alt={title}
               loading="lazy"
+              width={300}
+              height={300}
             />
             <p>{price.amount}</p>
             <p>{title}</p>
